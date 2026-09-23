@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRICKNEST ENGINEERS & CONTRACTORS (PVT) LTD</title>
+    <style>
+        :root {
+            --primary: #0f2c59;
+            --primary-light: #1e4b8a;
+            --accent: #d97706;
+            --accent-hover: #b45309;
+            --dark: #1e293b;
+            --light-bg: #f8fafc;
+            --border: #e2e8f0;
+            --white: #ffffff;
+            --text-muted: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--dark);
+            color: #94a3b8;
+            font-size: 0.85rem;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Navbar */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 75px;
+        }
+
+        .brand-logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(15, 44, 89, 0.85), rgba(15, 44, 89, 0.9)), 
+                        url('https://images.unsplash.com/photo-1541888946425-d0fbb186f5f7?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+            color: var(--white);
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 720px;
+            margin: 0 auto 36px;
+            color: #cbd5e1;
+        }
+
+        /* Verification Badges */
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .credential-box {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 16px 20px;
+            border-radius: 8px;
+        }
+
+        .credential-box small {
+            color: #fcd34d;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+        }
+
+        .credential-box div {
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* Section Layout */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            margin-top: 8px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 32px 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Corporate Legal Profile Table */
+        .compliance-wrapper {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        .info-table th, .info-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .info-table th {
+            background: #f1f5f9;
+            color: var(--dark);
+            width: 35%;
+        }
+
+        .info-table td {
+            color: #334155;
+            font-weight: 500;
+        }
+
+        /* Contact Details */
+        .contact-box {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 32px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .contact-item h4 {
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .contact-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #94a3b8;
+            padding: 40px 0 24px;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 24px;
+            margin-bottom: 24px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;
+                padding: 16px 0;
+                gap: 12px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .info-table th, .info-table td {
+                display: block;
+                width: 100%;
+            }
+            .info-table th {
+                border-bottom: none;
+                padding-bottom: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Regulatory Banner -->
+    <div class="top-bar">
+        <div class="container">
+            <div>Federal Board of Revenue (FBR) Registered Corporate Entity</div>
+            <div>NTN / Reg: 0299338 | CRO Islamabad</div>
+        </div>
+    </div>
+
+    <!-- Header / Nav -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="brand-logo">
+                BRICKNEST <span>ENGINEERS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#registration">Corporate Profile</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>BRICKNEST ENGINEERS &amp; CONTRACTORS</h1>
+            <p>A registered private limited corporate entity delivering structured civil engineering, infrastructure development, and contracting services across Pakistan.</p>
+            
+            <div class="credentials-grid">
+                <div class="credential-box">
+                    <small>FBR Registration No.</small>
+                    <div>0299338</div>
+                </div>
+                <div class="credential-box">
+                    <small>Incorporation No.</small>
+                    <div>850409973</div>
+                </div>
+                <div class="credential-box">
+                    <small>Tax Jurisdiction</small>
+                    <div>CRO Islamabad</div>
+                </div>
+                <div class="credential-box">
+                    <small>Activity Type</small>
+                    <div>Business / Corporate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Engineering Capabilities</h2>
+                <p>Delivering end-to-end execution with adherence to national engineering and safety standards.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Civil Infrastructure</h3>
+                    <p>Structural framework, earthworks, reinforced concrete construction, and urban infrastructural development projects.</p>
+                </div>
+                <div class="service-card">
+                    <h3>General Contracting</h3>
+                    <p>End-to-end turnkey project execution, material procurement, site administration, and subcontractor coordination.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Commercial Contracting</h3>
+                    <p>Office plazas, retail complexes, interior civil works, and customized architectural renovation services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal & Corporate Compliance Section -->
+    <section id="registration" style="background-color: #f1f5f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Verified Corporate Profile</h2>
+                <p>Statutory company records registered under Section 181C of the Income Tax Ordinance 2001.</p>
+            </div>
+
+            <div class="compliance-wrapper">
+                <table class="info-table">
+                    <tr>
+                        <th>Legal Corporate Entity Name</th>
+                        <td>BRICKNEST ENGINEERS &amp; CONTRACTORS ( PRIVATE ) LIMITED</td>
+                    </tr>
+                    <tr>
+                        <th>Taxpayer Registration No. (NTN)</th>
+                        <td>0299338</td>
+                    </tr>
+                    <tr>
+                        <th>Incorporation Number</th>
+                        <td>850409973</td>
+                    </tr>
+                    <tr>
+                        <th>Incorporation / Reg. Date</th>
+                        <td>01-July-2025</td>
+                    </tr>
+                    <tr>
+                        <th>Entity Type</th>
+                        <td>Company (Private Limited)</td>
+                    </tr>
+                    <tr>
+                        <th>Tax Office</th>
+                        <td>CRO Islamabad</td>
+                    </tr>
+                    <tr>
+                        <th>Principal Office Address</th>
+                        <td>Adeel Plaza Office 8b, Mezzanine Floor, Blue Area, Islamabad, 44000 Pakistan</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Details -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Office &amp; Contact</h2>
+                <p>Reach out to our corporate office in Islamabad for tenders, contract proposals, and corporate inquiries.</p>
+            </div>
+
+            <div class="contact-box">
+                <div class="contact-item">
+                    <h4>Registered Office</h4>
+                    <p>Adeel Plaza Office 8b, Mezzanine Floor<br>Blue Area, Islamabad, 44000 Pakistan</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Corporate Administration</h4>
+                    <p>Business Activity: Engineering &amp; General Contracting</p>
+                    <p>FBR Tax Jurisdiction: CRO Islamabad</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3 style="color: #ffffff; font-size: 1.1rem; margin-bottom: 4px;">BRICKNEST ENGINEERS &amp; CONTRACTORS (PVT) LTD</h3>
+                    <p>Incorporated under Pakistani Company Law &amp; FBR Registered</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BRICKNEST ENGINEERS &amp; CONTRACTORS (PRIVATE) LIMITED. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
